@@ -20,6 +20,7 @@ for (const folder of functionsFolders) {
     }
 };
 
-client.handleCommands()
-client.handleEvents()
+client.handleCommands();
+client.handleEvents();
+
 client.login(token);
