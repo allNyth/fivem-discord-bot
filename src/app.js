@@ -16,10 +16,9 @@ for (const folder of functionsFolders) {
     const functionsFile = fs.readdirSync(foldersPath).filter(file => file.endsWith('.js'));
     for (const file of functionsFile) {
         const filePath = path.join(foldersPath, file) 
-        const functions = require(filePath)(client)
+        require(filePath)(client)
     }
 };
-
 client.handleCommands();
 client.handleEvents();
 client.login(token);

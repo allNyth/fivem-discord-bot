@@ -1,4 +1,4 @@
-const { EmbedBuilder, ActionRowBuilder, Embed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 
 const mainEmbed = new EmbedBuilder().setTitle('Bem-vindo a configuração inicial do ProjetoRP Bot')
@@ -9,8 +9,14 @@ const mainEmbed = new EmbedBuilder().setTitle('Bem-vindo a configuração inicia
         { name: 'Configure e customize o seu connect', value: '```Personalize o seu embed de conexão do servidor de FiveM com um botão que leva diretamente para o seu servidor, escolha se deseja mostrar a quantidade de jogadores e o status do servidor e configure o layout da mensagem da forma que quiser.```', inline: false }
     )
     .setThumbnail('https://media.discordapp.net/attachments/1082792918781268138/1100576287904505856/Nyth__discord_logo_as_a_monster_2530ae31-cc62-4189-9b31-031c25118117-removebg-preview.png')
-    
-    const welcomeEmbed = new EmbedBuilder().setTitle('Configurar boas-vindas')
-    .setDescription('Esta função permite que você configure o embed da sua mensagem de boas-vindas. Com ela, você pode adicionar o ID do canal de boas-vindas, configurar o título, descrição, thumbnail, fields e footer da mensagem. Com isso, você poderá personalizar completamente a mensagem de boas-vindas que o bot enviará aos novos membros do seu servidor.')
 
-    module.exports = { mainEmbed, welcomeEmbed }
+const welcomeEmbed = new EmbedBuilder().setTitle('Configurar boas-vindas')
+    .setDescription('Esta função permite que você configure o embed da sua mensagem de boas-vindas. Com ela, você pode adicionar o ID do canal de boas-vindas, configurar o título, descrição, thumbnail, fields e footer da mensagem. Com isso, você poderá personalizar completamente a mensagem de boas-vindas que o bot enviará aos novos membros do seu servidor.')
+    .addFields(
+        { name: '```!member```', value: '```!member = Membro que entrou```', inline: false },
+        { name: '```!guildname```', value: '```!guildname = Nome do seu servidor```', inline: false },
+        { name: '```!count```', value: '```!count = Quantidade de membros do servidor```', inline: false },
+        { name: 'Titulo', value: 'O titulo aceita os seguinter parametros: !member ; !guildname ; !count', inline: false },
+
+    )
+module.exports = { mainEmbed, welcomeEmbed }
