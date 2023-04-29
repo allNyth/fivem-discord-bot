@@ -7,6 +7,7 @@ const {titleModal, descModal, thumbModal} = require('../../models/modals')
 module.exports = {
     name: Events.InteractionCreate,
     async execute(interaction) {
+        if (!interaction.isButton()) return;
         try {
             const ar = ['welcomeBtn', 'whitelistBtn', 'ticketBtn', 'connectBtn', 'permissionsBtn']
             if (interaction.isButton() && ar.includes(interaction.customId)) {
