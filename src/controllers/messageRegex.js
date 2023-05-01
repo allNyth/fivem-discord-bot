@@ -1,10 +1,11 @@
 class ModalRegex {
-    constructor() {
+    constructor(client) {
+    this.client = client
     }
-    title(title, interaction) {
-        const newTitle = title.replace(/!member/g, `${interaction.client.guildName}`)
+    async title(title) {
+        const newTitle = await title.replace(/!member/g, `${this.client.user.username}`).replace(/!guildname/g, `${this.client.guild.name}`).replace(/!count/g, `${this.client.guild.memberCount}`)
         return newTitle
     }
 }
 
-module.exports = {ModalRegex}
+module.exports = ModalRegex

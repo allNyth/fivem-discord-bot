@@ -10,6 +10,5 @@ module.exports = {
     async execute(interaction) {
         const reply = await interaction.deferReply({ ephemeral: true })
         await reply.edit({ components: [mainBtns], embeds: [mainEmbed] })
-    },
+    }
 };
-

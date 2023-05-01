@@ -13,6 +13,7 @@ const mainEmbed = new EmbedBuilder().setTitle('Bem-vindo a configuração inicia
 const welcomeEmbed = new EmbedBuilder().setTitle('Configurar boas-vindas')
     .setDescription('Esta função permite que você configure o embed da sua mensagem de boas-vindas. Com ela, você pode adicionar o ID do canal de boas-vindas, configurar o título, descrição, thumbnail, fields e footer da mensagem. Com isso, você poderá personalizar completamente a mensagem de boas-vindas que o bot enviará aos novos membros do seu servidor.')
     .addFields(
+        { name: 'PARAMETROS !', value: '```Parâmetros de função permitem personalizar a mensagem de boas-vindas do bot de acordo com suas preferências. Basta inserir o parâmetro no campo correspondente. Lembre-se de verificar se o campo aceita o parâmetro desejado.```', inline: false },
         { name: '```!member```', value: '```!member = Membro que entrou```', inline: false },
         { name: '```!guildname```', value: '```!guildname = Nome do seu servidor```', inline: false },
         { name: '```!count```', value: '```!count = Quantidade de membros do servidor```', inline: false },

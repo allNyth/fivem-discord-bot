@@ -1,20 +1,21 @@
 const { Events } = require('discord.js');
-const { execute } = require('./interactionCreate');
 const { mainEmbed, welcomeEmbed } = require('../../models/embeds');
-const { mainBtns, welcomeBtns } = require('../../models/buttons');
-const {titleModal, descModal, thumbModal} = require('../../models/modals')
+const { mainBtns, welcomeBtns01, welcomeBtns02, enableTimestamp } = require('../../models/buttons');
+const { titleModal, descModal, thumbModal, fieldsModal, footerModal } = require('../../models/modals')
 
 module.exports = {
     name: Events.InteractionCreate,
     async execute(interaction) {
         if (!interaction.isButton()) return;
         try {
-            const ar = ['welcomeBtn', 'whitelistBtn', 'ticketBtn', 'connectBtn', 'permissionsBtn']
-            if (interaction.isButton() && ar.includes(interaction.customId)) {
+            const ar = ['welcomeBtn', 'whitelistBtn', 'ticketBtn', 'connectBtn', 'permissionsBtn', 'enableTimestamp']
+            const ar2 = ['enableTimestamp']
+            const customId = await interaction.customId
+            if (interaction.isButton() && ar.includes(customId) || ar2.includes(customId)) {
                 const reply = await interaction.deferReply({ ephemeral: true });
                 switch (true) {
                     case interaction.customId === 'welcomeBtn':
-                        reply.edit({ embeds: [welcomeEmbed], components: [welcomeBtns] })
+                        reply.edit({ embeds: [welcomeEmbed], components: [welcomeBtns01, welcomeBtns02] })
                         break;
                     case interaction.customId === 'whitelistBtn':
                         console.log('Whitelist btn')
@@ -34,8 +35,9 @@ module.exports = {
             console.error(error)
         }
         try {
-            const ar = ['welcomeBtnTitle', 'welcomeBtnDesc', 'welcomeBtnThumb', 'welcomeBtnFields', 'welcomeBtnFooter']
-            if (interaction.isButton() && ar.includes(interaction.customId)) {
+            const ar = ['welcomeBtnTitle', 'welcomeBtnDesc', 'welcomeBtnThumb', 'welcomeBtnFields', 'welcomeBtnFooter', 'welcomeBtnTest']
+            const customId = await interaction.customId
+            if (interaction.isButton() && ar.includes(customId)) {
                 switch (true) {
                     case interaction.customId === 'welcomeBtnTitle':
                         await interaction.showModal(titleModal)
@@ -47,12 +49,14 @@ module.exports = {
                         await interaction.showModal(thumbModal)
                         break;
                     case interaction.customId === 'welcomeBtnFields':
-                        console.log('WelcomeBtn Fields')
+                        await interaction.showModal(fieldsModal)
                         break;
                     case interaction.customId === 'welcomeBtnFooter':
-                        console.log('WelcomeBtn Footer')
+                        await interaction.showModal(footerModal)
                         break;
-
+                        case interaction.customId === 'welcomeBtnTest':
+                            const member = await interaction.guild.members.cache.random()
+                            await interaction.client.emit('guildMemberAdd', member)
                     default:
                         break;
                 }
