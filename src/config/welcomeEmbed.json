@@ -1,3 +1,23 @@
 {
- 
+  "channelId": "1099789764032475146",
+  "title": "ola !member\n",
+  "desc": "Eu sou a descrição do servidor: !guildname",
+  "thumb": "!avatar",
+  "fields": [
+    {
+      "name": "sou o quarto field ok?",
+      "value": "eu sou o field 4 ou 1?",
+      "inline": true
+    },
+    {
+      "name": "sou o segundo field ok?",
+      "value": "sou seu segundo field maninho",
+      "inline": false
+    },
+    {
+      "name": "terceira",
+      "value": "jhkhjkh",
+      "inline": false
+    }
+  ]
 }

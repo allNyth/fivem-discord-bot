@@ -79,7 +79,7 @@ class EmbedDataManager {
             await this.interaction.followUp({ content: 'Campo inline incorreto, insira true para verdadeiro e false para falso', ephemeral: true })
         } else {
             const newInline = inlineCheck(inline)
-            const newField = { title: title, value: value, inline: newInline }
+            const newField = { name: title, value: value, inline: newInline }
             if ('fields' in config) {
                 if (config.fields.length < 25) {
                     config.fields.push(newField)
