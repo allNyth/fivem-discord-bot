@@ -19,4 +19,9 @@ const welcomeBtns02 = new ActionRowBuilder().addComponents(
 
 )
 
-module.exports = { mainBtns, welcomeBtns01, welcomeBtns02 }
+// whitelist buttons 
+const whitelistBtns = new ActionRowBuilder().addComponents(
+    new ButtonBuilder().setCustomId('wlDatabase').setLabel('BANCO DE DADOS 📚').setStyle(ButtonStyle.Success)
+)
+
+module.exports = { mainBtns, welcomeBtns01, welcomeBtns02, whitelistBtns }

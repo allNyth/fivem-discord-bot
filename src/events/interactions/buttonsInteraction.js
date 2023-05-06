@@ -1,6 +1,6 @@
 const { Events } = require('discord.js');
-const { mainEmbed, welcomeEmbed } = require('../../models/embeds');
-const { mainBtns, welcomeBtns01, welcomeBtns02, enableTimestamp } = require('../../models/buttons');
+const { mainEmbed, welcomeEmbed, whitelistEmbed } = require('../../models/embeds');
+const { mainBtns, welcomeBtns01, welcomeBtns02, whitelistBtns } = require('../../models/buttons');
 const { titleModal, descModal, thumbModal, fieldsModal, footerModal } = require('../../models/modals')
 
 module.exports = {
@@ -18,7 +18,7 @@ module.exports = {
                         reply.edit({ embeds: [welcomeEmbed], components: [welcomeBtns01, welcomeBtns02] })
                         break;
                     case interaction.customId === 'whitelistBtn':
-                        console.log('Whitelist btn')
+                        reply.edit({embeds: [whitelistEmbed], components: [whitelistBtns]})
                         break;
                     case interaction.customId === 'ticketBtn':
                         console.log('ticket btn')

@@ -36,7 +36,12 @@ module.exports = {
                     const inline = await field.inline
                     welcomeEmbed.addFields({ name: newTitle, value: newValue, inline: inline })
                 }))
-
+            }
+            if ('footer' in config && config.footer.length >= 1) {
+                const newFooter = await regex.fields(config.footer)
+                const guildIcon = await client.guild.iconURL()
+                welcomeEmbed.setFooter({text: newFooter, iconURL: guildIcon})
+                welcomeEmbed.setTimestamp()
             }
         }
         await embedConstructor()

@@ -1,4 +1,4 @@
-const { EmbedBuilder } = require('discord.js');
+const { EmbedBuilder, Embed } = require('discord.js');
 
 
 const mainEmbed = new EmbedBuilder().setTitle('Bem-vindo a configuração inicial do ProjetoRP Bot')
@@ -18,6 +18,8 @@ const welcomeEmbed = new EmbedBuilder().setTitle('Configurar boas-vindas')
         { name: '```!guildname```', value: '```!guildname = Nome do seu servidor```', inline: false },
         { name: '```!count```', value: '```!count = Quantidade de membros do servidor```', inline: false },
         { name: 'Titulo', value: 'O titulo aceita os seguinter parametros: !member ; !guildname ; !count', inline: false },
-
     )
-module.exports = { mainEmbed, welcomeEmbed }
+// whitelist Embed
+const whitelistEmbed = new EmbedBuilder().setTitle('Configure sua whitelist').setDescription('Antes de tudo, configure o banco de dados para que o sistema set a wl automaticamente assim que o usuario passar no questionario. Voce pode adicionar quantas perguntas quiser, e setar quantas dessas perguntas deve aparecer para o usuario, tanto as perguntas quanto as resposta serao enviadas de forma aleatoria para evitar fraude por parte do usuario, defina as perguntas e o id do canal de whitelist!')
+
+module.exports = { mainEmbed, welcomeEmbed, whitelistEmbed }
