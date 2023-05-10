@@ -20,8 +20,15 @@ const welcomeBtns02 = new ActionRowBuilder().addComponents(
 )
 
 // whitelist buttons 
-const whitelistBtns = new ActionRowBuilder().addComponents(
-    new ButtonBuilder().setCustomId('wlDatabase').setLabel('BANCO DE DADOS 📚').setStyle(ButtonStyle.Success)
+const whitelistBtns01 = new ActionRowBuilder().addComponents(
+    new ButtonBuilder().setCustomId('wlSetChannel').setLabel('Definir Canal 💼').setStyle(ButtonStyle.Success),
+    new ButtonBuilder().setCustomId('wlAddQuestion').setLabel('Adicionar pergunta 📝').setStyle(ButtonStyle.Success),
+    new ButtonBuilder().setCustomId('wlRemoveQuestion').setLabel('Remover pergunta 🗑️').setStyle(ButtonStyle.Danger),
+    new ButtonBuilder().setCustomId('wlRemoveAll').setLabel('Remover todas ✖️').setStyle(ButtonStyle.Danger),
+)
+const whitelistBtns02 = new ActionRowBuilder().addComponents(
+    new ButtonBuilder().setCustomId('wlQuestionsLength').setLabel('Configurar ⚙️').setStyle(ButtonStyle.Success),
+    new ButtonBuilder().setCustomId('wlSend').setLabel('Enviar 📨').setStyle(ButtonStyle.Success),
 )
 
-module.exports = { mainBtns, welcomeBtns01, welcomeBtns02, whitelistBtns }
+module.exports = { mainBtns, welcomeBtns01, welcomeBtns02, whitelistBtns01, whitelistBtns02 }
